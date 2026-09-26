@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Zap, Route, Gauge } from 'lucide-react'
+import { WhatsAppIcon, buildWaUrl } from '@/lib/whatsapp'
 import { motion } from 'framer-motion'
 import type { Product } from '@/types/product'
 import { formatPrice } from '@/data/products'
@@ -102,13 +103,16 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               View Details
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
             </Link>
-            <Link
-              href={`/contact?model=${product.model}`}
-              className="py-2.5 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-sky-300 border border-sky-500/30 rounded-xl hover:bg-sky-500/10 hover:border-sky-400/50 transition-all duration-200 whitespace-nowrap"
-              aria-label={`Enquire about ${product.model}`}
+            <a
+              href={buildWaUrl(`Hello! I am interested in the EV Empire ${product.model}. Please share more details.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2.5 sm:py-3 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-500 hover:to-green-600 border border-emerald-500/30 rounded-xl transition-all duration-200 whitespace-nowrap inline-flex items-center gap-1.5"
+              aria-label={`Enquire about ${product.model} on WhatsApp`}
             >
+              <WhatsAppIcon className="w-3.5 h-3.5" />
               Enquire
-            </Link>
+            </a>
           </div>
         </div>
       </div>

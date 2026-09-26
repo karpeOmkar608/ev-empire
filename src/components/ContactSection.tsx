@@ -8,12 +8,18 @@ interface ContactSectionProps {
   defaultModel?: string
 }
 
+const PHONE   = '+917507221221'       // digits only — used in tel: / wa.me links
+const PHONE_DISPLAY  = '+91 7507221221'     // formatted display
+const EMAIL   = 'evempire.kopargaon@gmail.com'
+const WA_URL  = `https://wa.me/${PHONE}?text=${encodeURIComponent('Hello! I am interested in an EV Empire scooter. Please share more details.')}`
+
 const contactItems = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+91 XXXXX XXXXX',
+    value: PHONE_DISPLAY,
     note: 'Call us during business hours',
+    href: `tel:${PHONE}`,
     color: 'text-sky-400',
     bg: 'bg-sky-500/10',
     border: 'border-sky-500/20',
@@ -21,8 +27,9 @@ const contactItems = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'info@evempire.in',
+    value: EMAIL,
     note: 'We reply within 24 hours',
+    href: `mailto:${EMAIL}`,
     color: 'text-blue-400',
     bg: 'bg-blue-500/10',
     border: 'border-blue-500/20',
@@ -30,8 +37,9 @@ const contactItems = [
   {
     icon: MessageCircle,
     label: 'WhatsApp',
-    value: '+91 XXXXX XXXXX',
-    note: 'Chat with us on WhatsApp',
+    value: PHONE_DISPLAY,
+    note: 'Tap to open WhatsApp chat',
+    href: WA_URL,
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10',
     border: 'border-emerald-500/20',
@@ -39,8 +47,9 @@ const contactItems = [
   {
     icon: MapPin,
     label: 'Address',
-    value: 'India',
+    value: 'J1909, R16, Life Republic, Punawale',
     note: 'Visit us at our showroom',
+    href: null,
     color: 'text-amber-400',
     bg: 'bg-amber-500/10',
     border: 'border-amber-500/20',
@@ -50,6 +59,7 @@ const contactItems = [
     label: 'Business Hours',
     value: 'Mon – Sat, 9 AM – 6 PM',
     note: 'Sunday: Closed',
+    href: null,
     color: 'text-violet-400',
     bg: 'bg-violet-500/10',
     border: 'border-violet-500/20',
@@ -106,23 +116,46 @@ export default function ContactSection({ defaultModel }: ContactSectionProps) {
             <h3 className="text-white text-xl font-bold mb-6">Contact Details</h3>
             {contactItems.map((item) => {
               const Icon = item.icon
-              return (
-                <div
-                  key={item.label}
-                  className={`flex items-start gap-4 p-4 rounded-xl card-premium border ${item.border} hover:border-opacity-60 transition-all`}
-                >
+              const inner = (
+                <>
                   <div
                     className={`w-10 h-10 rounded-lg ${item.bg} border ${item.border} flex items-center justify-center shrink-0`}
                   >
                     <Icon className={`w-5 h-5 ${item.color}`} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-slate-500 text-xs font-semibold tracking-wider uppercase">
                       {item.label}
                     </p>
-                    <p className="text-white text-sm font-semibold">{item.value}</p>
+                    <p className="text-white text-sm font-semibold break-all">
+                      {item.value}
+                    </p>
                     <p className="text-slate-500 text-xs">{item.note}</p>
                   </div>
+                </>
+              )
+
+              const baseClass = `flex items-start gap-4 p-4 rounded-xl card-premium border ${item.border} transition-all`
+
+              // Items with links get hover effect + cursor pointer
+              if (item.href) {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className={`${baseClass} hover:border-opacity-60 hover:-translate-y-0.5 hover:shadow-lg cursor-pointer`}
+                    aria-label={`${item.label}: ${item.value}`}
+                  >
+                    {inner}
+                  </a>
+                )
+              }
+
+              return (
+                <div key={item.label} className={baseClass}>
+                  {inner}
                 </div>
               )
             })}

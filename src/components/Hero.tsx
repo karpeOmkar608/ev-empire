@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Zap, ArrowRight, ChevronDown, Route, Gauge, Battery } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { WhatsAppIcon, buildWaUrl } from '@/lib/whatsapp'
 
 const stats = [
   { value: '4', label: 'Scooter Families' },
@@ -192,12 +193,15 @@ export default function Hero() {
               Explore Scooters
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-bold text-sky-300 border border-sky-500/40 rounded-xl hover:bg-sky-500/10 hover:border-sky-400/70 hover:text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-sm"
+            <a
+              href={buildWaUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-bold text-white bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl hover:from-emerald-400 hover:to-green-500 border border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
             >
+              <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
               Enquire Now
-            </Link>
+            </a>
           </motion.div>
 
           {/* Stats row */}

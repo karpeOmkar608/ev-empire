@@ -1,7 +1,26 @@
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 import type { EnquiryFormData } from '@/types/enquiry'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Create reusable SMTP transporter from environment variables
+function createTransporter() {
+  const host   = process.env.SMTP_HOST
+  const port   = parseInt(process.env.SMTP_PORT || '587', 10)
+  const user   = process.env.SMTP_USER
+  const pass   = process.env.SMTP_PASS
+
+  if (!host || !user || !pass) {
+    throw new Error(
+      'SMTP configuration is incomplete. Set SMTP_HOST, SMTP_USER and SMTP_PASS in your .env.local'
+    )
+  }
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465, // true for port 465, false for 587 (STARTTLS)
+    auth: { user, pass },
+  })
+}
 
 export async function sendEnquiryEmail(data: EnquiryFormData): Promise<void> {
   const ownerEmail = process.env.OWNER_EMAIL
@@ -9,6 +28,8 @@ export async function sendEnquiryEmail(data: EnquiryFormData): Promise<void> {
   if (!ownerEmail) {
     throw new Error('OWNER_EMAIL environment variable is not configured.')
   }
+
+  const transporter = createTransporter()
 
   const now = new Date().toLocaleString('en-IN', {
     timeZone: 'Asia/Kolkata',
@@ -18,11 +39,11 @@ export async function sendEnquiryEmail(data: EnquiryFormData): Promise<void> {
 
   const replyTo = data.email && data.email.length > 0 ? data.email : undefined
 
-  await resend.emails.send({
-    from: 'EV Empire Website <onboarding@resend.dev>',
+  await transporter.sendMail({
+    from: `"EV Empire Website" <${process.env.SMTP_USER}>`,
     to: ownerEmail,
     replyTo,
-    subject: `New EV Empire Website Enquiry - ${data.selectedScooter}`,
+    subject: `New Enquiry — ${data.selectedScooter} | EV Empire Website`,
     html: `
       <!DOCTYPE html>
       <html lang="en">

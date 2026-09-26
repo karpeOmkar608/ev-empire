@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import { WhatsAppIcon, buildWaUrl } from '@/lib/whatsapp'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -97,13 +98,15 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center shrink-0">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sky-600 to-blue-700 rounded-lg hover:from-sky-500 hover:to-blue-600 transition-all duration-200 shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+            <a
+              href={buildWaUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-green-700 rounded-lg hover:from-emerald-500 hover:to-green-600 transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
             >
-              <Zap className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
               Enquire Now
-            </Link>
+            </a>
           </div>
 
           {/* Mobile toggle */}
@@ -144,13 +147,15 @@ export default function Navbar() {
                 )
               })}
 
-              <Link
-                href="/contact"
-                className="mt-2 flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-sky-600 to-blue-700 rounded-lg shadow-lg shadow-sky-500/20"
+              <a
+                href={buildWaUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-green-700 rounded-lg shadow-lg shadow-emerald-500/20"
               >
-                <Zap className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 Enquire Now
-              </Link>
+              </a>
             </div>
           </div>
         </div>

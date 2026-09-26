@@ -3,6 +3,7 @@ import ProductGrid from '@/components/ProductGrid'
 import ProductComparison from '@/components/ProductComparison'
 import Link from 'next/link'
 import { Zap, ArrowRight } from 'lucide-react'
+import { WhatsAppIcon, buildWaUrl } from '@/lib/whatsapp'
 
 export const metadata: Metadata = {
   title: 'Products — Browse All Electric Scooters',
@@ -56,27 +57,31 @@ export default function ProductsPage() {
           <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
             Have questions about a specific model? Our team is ready to help you choose the right scooter.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-sky-500 to-blue-700 rounded-xl hover:from-sky-400 hover:to-blue-600 transition-all duration-200 shadow-xl shadow-sky-500/25 hover:-translate-y-1"
+          <a
+            href={buildWaUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-emerald-500 to-green-700 rounded-xl hover:from-emerald-400 hover:to-green-600 transition-all duration-200 shadow-xl shadow-emerald-500/25 hover:-translate-y-1"
           >
-            <Zap className="w-5 h-5" />
+            <WhatsAppIcon className="w-5 h-5" />
             Enquire Now
             <ArrowRight className="w-5 h-5" />
-          </Link>
+          </a>
         </div>
       </section>
 
       {/* Mobile sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden">
         <div className="px-4 py-3 bg-[#070d1a]/95 backdrop-blur-xl border-t border-sky-500/10">
-          <Link
-            href="/contact"
-            className="flex items-center justify-center gap-2 w-full py-3.5 text-sm font-bold text-white bg-gradient-to-r from-sky-500 to-blue-700 rounded-xl"
+          <a
+            href={buildWaUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-3.5 text-sm font-bold text-white bg-gradient-to-r from-emerald-500 to-green-700 rounded-xl"
           >
-            <Zap className="w-4 h-4 fill-current" />
+            <WhatsAppIcon className="w-4 h-4" />
             Enquire Now
-          </Link>
+          </a>
         </div>
       </div>
     </>

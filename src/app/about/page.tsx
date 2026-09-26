@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import FeatureSection from '@/components/FeatureSection'
 import Link from 'next/link'
 import { ArrowRight, Zap } from 'lucide-react'
+import { WhatsAppIcon, buildWaUrl } from '@/lib/whatsapp'
 
 export const metadata: Metadata = {
   title: 'About EV Empire — Our Story & Mission',
@@ -132,13 +133,15 @@ export default function AboutPage() {
             >
               View Scooters <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-4 font-bold text-sky-300 border border-sky-500/30 rounded-xl hover:bg-sky-500/10 transition-all"
+            <a
+              href={buildWaUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-4 font-bold text-white bg-gradient-to-r from-emerald-500 to-green-700 rounded-xl hover:from-emerald-400 hover:to-green-600 hover:-translate-y-1 transition-all shadow-xl shadow-emerald-500/25"
             >
-              <Zap className="w-5 h-5" />
+              <WhatsAppIcon className="w-5 h-5" />
               Enquire Now
-            </Link>
+            </a>
           </div>
         </div>
       </section>

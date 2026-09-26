@@ -96,20 +96,24 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-slate-400 text-sm">Phone</p>
-                  <p className="text-slate-300 text-sm font-medium">
-                    {/* Replace with actual phone number */}
-                    +91 XXXXX XXXXX
-                  </p>
+                  <a
+                    href="tel:+917507221221"
+                    className="text-slate-300 text-sm font-medium hover:text-sky-400 transition-colors"
+                  >
+                    +91 7507221221
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-slate-400 text-sm">Email</p>
-                  <p className="text-slate-300 text-sm font-medium">
-                    {/* Replace with actual email */}
-                    info@evempire.in
-                  </p>
+                  <a
+                    href="mailto:evempire.kopargaon@gmail.com"
+                    className="text-slate-300 text-sm font-medium hover:text-sky-400 transition-colors break-all"
+                  >
+                    evempire.kopargaon@gmail.com
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -117,8 +121,7 @@ export default function Footer() {
                 <div>
                   <p className="text-slate-400 text-sm">Address</p>
                   <p className="text-slate-300 text-sm font-medium">
-                    {/* Replace with actual address */}
-                    India
+                    J1909, R16, Life Republic, Punawale
                   </p>
                 </div>
               </li>
@@ -127,7 +130,6 @@ export default function Footer() {
                 <div>
                   <p className="text-slate-400 text-sm">Business Hours</p>
                   <p className="text-slate-300 text-sm font-medium">
-                    {/* Replace with actual hours */}
                     Mon – Sat, 9 AM – 6 PM
                   </p>
                 </div>

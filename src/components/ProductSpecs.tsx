@@ -13,6 +13,7 @@ import {
   Box,
   ArrowLeft,
 } from 'lucide-react'
+import { WhatsAppIcon, buildWaUrl } from '@/lib/whatsapp'
 import type { Product } from '@/types/product'
 import { formatPrice } from '@/data/products'
 
@@ -133,13 +134,15 @@ export default function ProductSpecs({ product, showEnquiryLink = true }: Produc
               <p className="text-slate-300 font-semibold text-sm sm:text-base mb-4">
                 Interested in the {product.model}?
               </p>
-              <Link
-                href={`/contact?model=${product.model}`}
-                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white bg-gradient-to-r from-sky-500 to-blue-700 rounded-xl hover:from-sky-400 hover:to-blue-600 transition-all duration-200 shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5"
+              <a
+                href={buildWaUrl(`Hello! I am interested in the EV Empire ${product.model}. Please share more details.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white bg-gradient-to-r from-emerald-500 to-green-700 rounded-xl hover:from-emerald-400 hover:to-green-600 transition-all duration-200 shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
               >
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
-                Send Enquiry
-              </Link>
+                <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                Send Enquiry on WhatsApp
+              </a>
             </div>
           )}
         </div>
