@@ -1,177 +1,11 @@
 import type { Product, ProductFamily_Data } from '@/types/product'
+import productsData from '../../data/products.json'
 
-export const products: Product[] = [
-  // EMPIRE PRIME — EP40
-  {
-    slug: 'ep40',
-    model: 'EP40',
-    family: 'empire-prime',
-    familyName: 'Empire Prime',
-    series: 'Single Light Series',
-    seriesLabel: 'SINGLE LIGHT SERIES',
-    price: 44990,
-    controller: '48V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LED',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '40–50 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1371.6 × 1879.6 × 711.2 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ep40.webp',
-  },
-  // EMPIRE PRIME — EP50
-  {
-    slug: 'ep50',
-    model: 'EP50',
-    family: 'empire-prime',
-    familyName: 'Empire Prime',
-    series: 'Single Light Series',
-    seriesLabel: 'SINGLE LIGHT SERIES',
-    price: 47990,
-    controller: '60V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LED',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '50–60 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1371.6 × 1879.6 × 711.2 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ep50.webp',
-  },
-  // EMPIRE PRIME — EP60
-  {
-    slug: 'ep60',
-    model: 'EP60',
-    family: 'empire-prime',
-    familyName: 'Empire Prime',
-    series: 'Single Light Series',
-    seriesLabel: 'SINGLE LIGHT SERIES',
-    price: 50990,
-    controller: '72V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LED',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '60–70 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1371.6 × 1879.6 × 711.2 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ep60.webp',
-    badge: 'Most Popular',
-  },
-  // EMPIRE DUO — ED40
-  {
-    slug: 'ed40',
-    model: 'ED40',
-    family: 'empire-duo',
-    familyName: 'Empire Duo',
-    series: 'Double Light Series',
-    seriesLabel: 'DOUBLE LIGHT SERIES',
-    price: 47990,
-    controller: '48V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LED',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '40–50 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1371.6 × 1879.6 × 711.2 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ed40.webp',
-  },
-  // EMPIRE DUO — ED50
-  {
-    slug: 'ed50',
-    model: 'ED50',
-    family: 'empire-duo',
-    familyName: 'Empire Duo',
-    series: 'Double Light Series',
-    seriesLabel: 'DOUBLE LIGHT SERIES',
-    price: 50990,
-    controller: '60V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LED',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '50–60 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1371.6 × 1879.6 × 711.2 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ed50.webp',
-  },
-  // EMPIRE DUO — ED60
-  {
-    slug: 'ed60',
-    model: 'ED60',
-    family: 'empire-duo',
-    familyName: 'Empire Duo',
-    series: 'Double Light Series',
-    seriesLabel: 'DOUBLE LIGHT SERIES',
-    price: 53990,
-    controller: '72V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LED',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '60–70 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1371.6 × 1879.6 × 711.2 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ed60.webp',
-    badge: 'Best Value',
-  },
-  // EMPIRE FAMILY — EF60
-  {
-    slug: 'ef60',
-    model: 'EF60',
-    family: 'empire-family',
-    familyName: 'Empire Family',
-    series: 'Activa Type Series',
-    seriesLabel: 'ACTIVA TYPE SERIES',
-    price: 63990,
-    controller: '72V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LEAD',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '60–70 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1143 × 711 × 2190 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ef60.webp',
-  },
-  // EMPIRE CLASSIC — EC60
-  {
-    slug: 'ec60',
-    model: 'EC60',
-    family: 'empire-classic',
-    familyName: 'Empire Classic',
-    series: 'Chetak Type Series',
-    seriesLabel: 'CHETAK TYPE SERIES',
-    price: 64990,
-    controller: '72V',
-    brake: 'Disc & Drum',
-    chargerType: '4AMP LEAD',
-    chargingTime: 'Lead 8–9 Hours',
-    battery: 'Lead',
-    range: '60–70 KM',
-    maxSpeed: '25 KM/H',
-    dimension: '1143 × 1854 × 685.8 mm',
-    loadingCapacity: '160 KG',
-    bodyType: 'ABS Plastic',
-    image: '/images/ec60.webp',
-  },
-]
+// Cast JSON data to typed Product array
+export const products: Product[] = productsData as Product[]
+
+// Only active products for public-facing pages
+export const activeProducts: Product[] = products.filter(p => p.active)
 
 export const productFamilies: ProductFamily_Data[] = [
   {
@@ -180,7 +14,7 @@ export const productFamilies: ProductFamily_Data[] = [
     series: 'Single Light Series',
     seriesLabel: 'SINGLE LIGHT SERIES',
     description: 'A clean, modern single-headlight design built for everyday city commuting. Available in 48V, 60V and 72V configurations.',
-    models: products.filter(p => p.family === 'empire-prime'),
+    models: activeProducts.filter(p => p.family === 'empire-prime'),
     image: '/images/ep60.webp',
     accentColor: 'from-blue-600 to-blue-800',
   },
@@ -190,7 +24,7 @@ export const productFamilies: ProductFamily_Data[] = [
     series: 'Double Light Series',
     seriesLabel: 'DOUBLE LIGHT SERIES',
     description: 'Distinguished dual-headlight aesthetics combined with the same reliable electric drivetrain. Stand out on every road.',
-    models: products.filter(p => p.family === 'empire-duo'),
+    models: activeProducts.filter(p => p.family === 'empire-duo'),
     image: '/images/ed60.webp',
     accentColor: 'from-indigo-600 to-purple-800',
   },
@@ -200,7 +34,7 @@ export const productFamilies: ProductFamily_Data[] = [
     series: 'Activa Type Series',
     seriesLabel: 'ACTIVA TYPE SERIES',
     description: 'The familiar scooter silhouette, reinvented for electric mobility. Designed for families with a comfortable, practical ride.',
-    models: products.filter(p => p.family === 'empire-family'),
+    models: activeProducts.filter(p => p.family === 'empire-family'),
     image: '/images/ef60.webp',
     accentColor: 'from-emerald-600 to-teal-800',
   },
@@ -210,13 +44,17 @@ export const productFamilies: ProductFamily_Data[] = [
     series: 'Chetak Type Series',
     seriesLabel: 'CHETAK TYPE SERIES',
     description: 'Timeless retro-inspired styling with a fully electric drivetrain. The premium expression of the EV Empire range.',
-    models: products.filter(p => p.family === 'empire-classic'),
+    models: activeProducts.filter(p => p.family === 'empire-classic'),
     image: '/images/ec60.webp',
     accentColor: 'from-amber-600 to-orange-800',
   },
-]
+].filter(f => f.models.length > 0)
 
 export function getProductBySlug(slug: string): Product | undefined {
+  return activeProducts.find(p => p.slug === slug)
+}
+
+export function getAllProductBySlug(slug: string): Product | undefined {
   return products.find(p => p.slug === slug)
 }
 
@@ -228,4 +66,4 @@ export function formatPrice(price: number): string {
   }).format(price)
 }
 
-export const ALL_SCOOTER_MODELS = products.map(p => p.model)
+export const ALL_SCOOTER_MODELS = activeProducts.map(p => p.model)

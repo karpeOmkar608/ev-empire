@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { products } from '@/data/products'
+import { activeProducts as products } from '@/data/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://evempire.in'

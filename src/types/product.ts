@@ -1,6 +1,7 @@
-export type ProductFamily = 'empire-prime' | 'empire-duo' | 'empire-family' | 'empire-classic'
+export type ProductFamily = string
 
 export type Product = {
+  id: string
   slug: string
   model: string
   family: ProductFamily
@@ -8,6 +9,8 @@ export type Product = {
   series: string
   seriesLabel: string
   price: number
+  shortDescription?: string
+  description?: string
   controller: string
   brake: string
   chargerType: string
@@ -19,7 +22,12 @@ export type Product = {
   loadingCapacity: string
   bodyType: string
   image: string
-  badge?: string
+  badge?: string | null
+  features?: string[]
+  active: boolean
+  featured: boolean
+  createdAt: string
+  updatedAt: string
 }
 
 export type ProductFamily_Data = {
@@ -32,3 +40,8 @@ export type ProductFamily_Data = {
   image: string
   accentColor: string
 }
+
+// Admin-specific types
+export type AdminProduct = Product
+
+export type ProductFormData = Omit<Product, 'createdAt' | 'updatedAt'>
