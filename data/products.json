@@ -22,11 +22,17 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ep40.webp",
     "badge": null,
-    "features": ["Zero Emissions", "Low Maintenance", "LED Lighting", "Disc & Drum Brakes", "ABS Plastic Body"],
-    "active": true,
+    "features": [
+      "Zero Emissions",
+      "Low Maintenance",
+      "LED Lighting",
+      "Disc & Drum Brakes",
+      "ABS Plastic Body"
+    ],
+    "active": false,
     "featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
+    "updatedAt": "2026-09-27T21:16:19.420Z"
   },
   {
     "id": "ep50",
@@ -51,7 +57,13 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ep50.webp",
     "badge": null,
-    "features": ["Zero Emissions", "Extended Range", "Low Maintenance", "LED Lighting", "Disc & Drum Brakes"],
+    "features": [
+      "Zero Emissions",
+      "Extended Range",
+      "Low Maintenance",
+      "LED Lighting",
+      "Disc & Drum Brakes"
+    ],
     "active": true,
     "featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
@@ -80,7 +92,14 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ep60.webp",
     "badge": "Most Popular",
-    "features": ["Zero Emissions", "Long Range", "Low Maintenance", "LED Lighting", "72V Controller", "Disc & Drum Brakes"],
+    "features": [
+      "Zero Emissions",
+      "Long Range",
+      "Low Maintenance",
+      "LED Lighting",
+      "72V Controller",
+      "Disc & Drum Brakes"
+    ],
     "active": true,
     "featured": true,
     "createdAt": "2024-01-01T00:00:00.000Z",
@@ -109,7 +128,13 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ed40.webp",
     "badge": null,
-    "features": ["Dual Headlights", "Zero Emissions", "Low Maintenance", "Disc & Drum Brakes", "ABS Plastic Body"],
+    "features": [
+      "Dual Headlights",
+      "Zero Emissions",
+      "Low Maintenance",
+      "Disc & Drum Brakes",
+      "ABS Plastic Body"
+    ],
     "active": true,
     "featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
@@ -138,7 +163,13 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ed50.webp",
     "badge": null,
-    "features": ["Dual Headlights", "Zero Emissions", "Extended Range", "Low Maintenance", "Disc & Drum Brakes"],
+    "features": [
+      "Dual Headlights",
+      "Zero Emissions",
+      "Extended Range",
+      "Low Maintenance",
+      "Disc & Drum Brakes"
+    ],
     "active": true,
     "featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
@@ -167,7 +198,14 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ed60.webp",
     "badge": "Best Value",
-    "features": ["Dual Headlights", "Zero Emissions", "Long Range", "Low Maintenance", "72V Controller", "Best Value"],
+    "features": [
+      "Dual Headlights",
+      "Zero Emissions",
+      "Long Range",
+      "Low Maintenance",
+      "72V Controller",
+      "Best Value"
+    ],
     "active": true,
     "featured": true,
     "createdAt": "2024-01-01T00:00:00.000Z",
@@ -196,7 +234,14 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ef60.webp",
     "badge": null,
-    "features": ["Family Design", "Zero Emissions", "Long Range", "Spacious", "Eco Friendly", "Disc & Drum Brakes"],
+    "features": [
+      "Family Design",
+      "Zero Emissions",
+      "Long Range",
+      "Spacious",
+      "Eco Friendly",
+      "Disc & Drum Brakes"
+    ],
     "active": true,
     "featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
@@ -225,7 +270,14 @@
     "bodyType": "ABS Plastic",
     "image": "/images/ec60.webp",
     "badge": null,
-    "features": ["Retro Design", "Zero Emissions", "Long Range", "Low Maintenance", "Premium Look", "Disc & Drum Brakes"],
+    "features": [
+      "Retro Design",
+      "Zero Emissions",
+      "Long Range",
+      "Low Maintenance",
+      "Premium Look",
+      "Disc & Drum Brakes"
+    ],
     "active": true,
     "featured": true,
     "createdAt": "2024-01-01T00:00:00.000Z",
