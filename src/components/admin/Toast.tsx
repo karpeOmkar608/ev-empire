@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { CheckCircle, XCircle, AlertTriangle, Info, X } from 'lucide-react'
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info'
@@ -73,14 +73,16 @@ export function ToastContainer({ toasts, onDismiss }: ToastProps) {
 export function useToast() {
   const [toasts, setToasts] = useState<ToastMessage[]>([])
 
-  const addToast = (message: string, type: ToastType = 'info') => {
+  // useCallback ensures stable references so consumers can safely
+  // include these in useEffect/useCallback dependency arrays.
+  const addToast = useCallback((message: string, type: ToastType = 'info') => {
     const id = Math.random().toString(36).slice(2)
     setToasts(prev => [...prev, { id, type, message }])
-  }
+  }, [])
 
-  const dismiss = (id: string) => {
+  const dismiss = useCallback((id: string) => {
     setToasts(prev => prev.filter(t => t.id !== id))
-  }
+  }, [])
 
   return { toasts, addToast, dismiss }
 }

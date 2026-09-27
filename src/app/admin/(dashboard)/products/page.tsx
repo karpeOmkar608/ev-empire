@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import type { Product } from '@/types/product'
@@ -18,6 +18,11 @@ export default function AdminProductsPage() {
   const [filterFamily, setFilterFamily] = useState('all')
   const [filterStatus, setFilterStatus] = useState('all')
 
+  // Stable ref for addToast so it never causes fetchProducts to re-create
+  const addToastRef = useRef(addToast)
+  useEffect(() => { addToastRef.current = addToast }, [addToast])
+
+  // fetchProducts has no external deps — runs only when explicitly called
   const fetchProducts = useCallback(async () => {
     setLoading(true)
     try {
@@ -26,11 +31,11 @@ export default function AdminProductsPage() {
       const data = await res.json()
       setProducts(data.products)
     } catch {
-      addToast('Failed to load products.', 'error')
+      addToastRef.current('Failed to load products.', 'error')
     } finally {
       setLoading(false)
     }
-  }, [addToast])
+  }, [])
 
   useEffect(() => { fetchProducts() }, [fetchProducts])
 
