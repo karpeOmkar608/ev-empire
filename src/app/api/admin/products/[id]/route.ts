@@ -35,8 +35,14 @@ async function saveProducts(
 ): Promise<void> {
   if (isGitHubConfigured() && sha) {
     await commitProductsToGitHub(products, sha, message)
+    // Only write locally in development — Vercel's filesystem is read-only
+    if (process.env.NODE_ENV !== 'production') {
+      try { writeLocalProducts(products) } catch { /* ignore */ }
+    }
+  } else {
+    // No GitHub configured — write to local file only (development)
+    writeLocalProducts(products)
   }
-  writeLocalProducts(products)
 }
 
 interface RouteParams {

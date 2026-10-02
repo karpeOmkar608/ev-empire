@@ -38,9 +38,14 @@ async function saveProducts(
   if (isGitHubConfigured() && sha) {
     const { commitProductsToGitHub } = await import('@/lib/github')
     await commitProductsToGitHub(products, sha, message)
+    // Only write locally in development — Vercel's filesystem is read-only
+    if (process.env.NODE_ENV !== 'production') {
+      try { writeLocalProducts(products) } catch { /* ignore */ }
+    }
+  } else {
+    // No GitHub configured — write to local file only (development)
+    writeLocalProducts(products)
   }
-  // Always write locally (for dev and as fallback)
-  writeLocalProducts(products)
 }
 
 // GET /api/admin/products — list all products
