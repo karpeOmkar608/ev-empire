@@ -1,14 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { CheckCircle2, Minus } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { products, formatPrice } from '@/data/products'
+import { formatPrice } from '@/data/products'
 import type { Product } from '@/types/product'
 
 export default function ProductComparison() {
-  const [selected, setSelected] = useState<string[]>(['ep60', 'ed60'])
+  const [allProducts, setAllProducts] = useState<Product[]>([])
+  const [selected, setSelected] = useState<string[]>([])
+
+  useEffect(() => {
+    fetch('/api/products')
+      .then(r => r.json())
+      .then(data => {
+        const active: Product[] = data.products ?? []
+        setAllProducts(active)
+        // Default: pick first two slugs
+        const defaults = active.slice(0, 2).map(p => p.slug)
+        setSelected(defaults)
+      })
+      .catch(() => {})
+  }, [])
 
   const toggle = (slug: string) => {
     setSelected((prev) => {
@@ -21,8 +35,9 @@ export default function ProductComparison() {
   }
 
   const comparedProducts: Product[] = selected
-    .map((slug) => products.find((p) => p.slug === slug)!)
+    .map((slug) => allProducts.find((p) => p.slug === slug)!)
     .filter(Boolean)
+
 
   const fields: { label: string; key: keyof Product }[] = [
     { label: 'Series', key: 'series' },
@@ -69,7 +84,7 @@ export default function ProductComparison() {
 
         {/* Model Selector */}
         <div className="flex flex-wrap gap-2 justify-center mb-10">
-          {products.map((p) => {
+          {allProducts.map((p) => {
             const isSelected = selected.includes(p.slug)
             return (
               <button

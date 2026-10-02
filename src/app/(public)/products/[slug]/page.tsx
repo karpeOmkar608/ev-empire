@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { getProductBySlug, products, formatPrice } from '@/data/products'
+import { getProductBySlug, activeProducts, formatPrice } from '@/data/products'
 import ProductSpecs from '@/components/ProductSpecs'
 import Link from 'next/link'
 import { buildWaUrl, WhatsAppIcon } from '@/lib/whatsapp'
@@ -9,9 +9,9 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
-// Generate static params for all products
+// Generate static params for active products only
 export async function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }))
+  return activeProducts.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -51,7 +51,7 @@ export default async function ProductDetailPage({ params }: Props) {
             <span className="text-sky-400">{product.familyName}</span>
           </h2>
           <div className="flex flex-wrap gap-4">
-            {products
+            {activeProducts
               .filter((p) => p.family === product.family && p.slug !== product.slug)
               .map((p) => (
                 <Link

@@ -1,10 +1,20 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ProductCard from './ProductCard'
-import { productFamilies } from '@/data/products'
+import type { ProductFamily_Data } from '@/types/product'
 
 export default function ProductGrid() {
+  const [families, setFamilies] = useState<ProductFamily_Data[]>([])
+
+  useEffect(() => {
+    fetch('/api/products/families')
+      .then(r => r.json())
+      .then(data => setFamilies(data.families ?? []))
+      .catch(() => {})
+  }, [])
+
   return (
     <section
       id="products"
@@ -38,7 +48,7 @@ export default function ProductGrid() {
         </motion.div>
 
         {/* Family groups */}
-        {productFamilies.map((family, familyIdx) => (
+        {families.map((family, familyIdx) => (
           <div key={family.id} id={family.id} className="mb-14 last:mb-0">
 
             {/* Family header */}
@@ -67,7 +77,7 @@ export default function ProductGrid() {
               )}
             </motion.div>
 
-            {/* Cards grid
+            {/*
                 - 1 model  → single centered card capped at ~400px
                 - 2 models → 2-col on sm+
                 - 3 models → 2-col on sm, 3-col on lg
