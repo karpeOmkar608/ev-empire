@@ -56,6 +56,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center shrink-0 group"
             aria-label="EV Empire — Home"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             {/*
               mix-blend-mode: screen makes the white logo background
