@@ -282,5 +282,40 @@
     "featured": true,
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2026-10-02T19:47:56.162Z"
+  },
+  {
+    "id": "ep40copy",
+    "slug": "ep40copy",
+    "model": "EP40 Copy",
+    "family": "empire-prime",
+    "familyName": "Empire Prime",
+    "series": "Single Light Series",
+    "seriesLabel": "SINGLE LIGHT SERIES",
+    "price": 44990,
+    "shortDescription": "Entry-level electric scooter with 48V controller for smooth city rides.",
+    "description": "The EP40 is the perfect entry point into the EV Empire family. Powered by a 48V controller and Lead battery with a 40–50 KM range, it delivers everything you need for your daily city commute — quietly, cleanly, and economically.",
+    "controller": "48V",
+    "battery": "Lead",
+    "range": "40–50 KM",
+    "maxSpeed": "25 KM/H",
+    "image": "/images/ep40.webp",
+    "brake": "Disc & Drum",
+    "chargerType": "4AMP LED",
+    "chargingTime": "Lead 8–9 Hours",
+    "dimension": "1371.6 × 1879.6 × 711.2 mm",
+    "loadingCapacity": "160 KG",
+    "bodyType": "ABS Plastic",
+    "badge": null,
+    "features": [
+      "Zero Emissions",
+      "Low Maintenance",
+      "LED Lighting",
+      "Disc & Drum Brakes",
+      "ABS Plastic Body"
+    ],
+    "active": true,
+    "featured": false,
+    "createdAt": "2026-10-02T20:22:16.717Z",
+    "updatedAt": "2026-10-02T20:22:16.717Z"
   }
 ]
